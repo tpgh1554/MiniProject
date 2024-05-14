@@ -8,73 +8,18 @@ import wiskey from "../img/backgroundimg/wiskey.jpg";
 import styled from "styled-components";
 
 //BackgrroundImg StyledComponent
-const BackgroundImg = styled.div`
+const Container = styled.div`
   width: 100vw;
+`;
+const BackgroundImg = styled.div`
+  width: 100%;
   height: 100vh;
   border: none;
   background-image: ${({ imageurl }) => `url(${imageurl})`};
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
   background-position: center;
-  position: fixed;
-`;
-
-//ImgChangeBtnsDiv StyledComponent;
-const ImgChangeBtnsDiv = styled.div`
-  width: 100vw;
-  height: 5vh;
-  border: none;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-  z-index: 5;
-`;
-
-//배경바꾸는 버튼 styledComponent
-const ImgBtnDiv = styled.div`
-  width: 3vw;
-  height: 5vh;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & > button {
-    width: 1.3vw;
-    height: 1.3vw;
-    border: none;
-    background-color: #fff;
-    border-radius: 50%;
-    &:hover {
-      background-color: rgba(255, 0, 0, 0.6);
-    }
-  }
-`;
-const PageSlide = styled.div`
-  width: 100vw;
-  height: 80vh;
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  display: none;
-  & > div {
-    width: 4vw;
-    height: 13vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & > img {
-      width: 3vw;
-      height: 13vh;
-    }
-    &:hover {
-      color: red;
-      transition: 0.7s;
-    }
-  }
+  position: relative;
 `;
 
 const Background = ({ children }) => {
@@ -83,40 +28,9 @@ const Background = ({ children }) => {
     setBackground(url);
   };
   return (
-    <BackgroundImg imageurl={background}>
-      {children}
-      <PageSlide></PageSlide>
-      <ImgChangeBtnsDiv>
-        <ImgBtnDiv>
-          <button
-            onClick={() => {
-              onClick(beer);
-            }}
-          />
-        </ImgBtnDiv>
-        <ImgBtnDiv>
-          <button
-            onClick={() => {
-              onClick(traditional);
-            }}
-          />
-        </ImgBtnDiv>
-        <ImgBtnDiv>
-          <button
-            onClick={() => {
-              onClick(wine);
-            }}
-          />
-        </ImgBtnDiv>
-        <ImgBtnDiv>
-          <button
-            onClick={() => {
-              onClick(wiskey);
-            }}
-          />
-        </ImgBtnDiv>
-      </ImgChangeBtnsDiv>
-    </BackgroundImg>
+    <Container>
+      <BackgroundImg imageurl={background}>{children}</BackgroundImg>
+    </Container>
   );
 };
 

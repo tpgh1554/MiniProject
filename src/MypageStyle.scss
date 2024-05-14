@@ -2,20 +2,35 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 button {
-  width: 80px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   margin: 8px;
   background: rgba($color: #000000, $alpha: 0.5);
   border-radius: 20px;
   border: none;
   color: white;
   font-weight: 100;
+  font-size: 20px;
+}
+@media (max-width: 700px) {
+  button {
+    font-size: 15px;
+    width: 80px;
+    height: 32px;
+    transition: 0.5s;
+  }
 }
 h2 {
   color: white;
+}
+@media (max-width: 700px) {
+  h2 {
+    font-size: 15px;
+    transition: 0.5s;
+  }
 }
 .container {
   font-size: 16px;
@@ -25,7 +40,7 @@ h2 {
   justify-content: center;
 }
 .contents {
-  width: 60%;
+  width: 76%;
   padding: 10px;
   border: none;
   border-radius: 30px;
@@ -51,7 +66,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
 }
-@media (max-width: 784px) {
+@media (max-width: 700px) {
   .profile {
     flex-flow: column;
     transition: 0.5s;
@@ -62,21 +77,45 @@ h2 {
   align-items: center;
   gap: 10px;
 }
-@media (max-width: 784px) {
+@media (max-width: 700px) {
   .person {
     flex-flow: column;
     transition: 0.5s;
   }
 }
+.img {
+  width: 100px;
+  height: 100px;
+  background-image: url("./img/person-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .person span {
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 700;
+}
+@media (max-width: 700px) {
+  .person span {
+    font-size: 15px;
+    font-weight: 700;
+  }
 }
 
 .alinfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.alimg {
+  width: 120px;
+  height: 120px;
+  background-image: url("./img/al1.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
 }
 .alinfo2 {
   display: flex;
@@ -95,13 +134,15 @@ h2 {
   color: white;
   background-color: rgba($color: #000000, $alpha: 0.5);
 }
-@media (max-width: 784px) {
+@media (max-width: 700px) {
   .reviewbox {
     display: none;
+    // height: 90%;
   }
 }
 .reviewbox textarea {
   margin: 0;
+  height: 90%;
   background: none;
   border: none;
 }
@@ -110,14 +151,16 @@ h2 {
   border: none;
   margin: 0 0 0 auto;
 }
-
+.btn {
+  display: flex;
+}
 .seereview {
   display: none;
   background: none;
   border: none;
   color: white;
 }
-@media screen and (max-width: 784px) {
+@media screen and (max-width: 700px) {
   .seereview {
     display: block;
   }
